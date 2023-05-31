@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}To-Do List{% endblock title %}
+
+{% if messages %}
+    {% block messages %}
+        {% for message in messages %} 
+            <div class="alert alert-success alert-dismissible text-center fade show rounded-0" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>      
+        {% endfor %}
+    {% endblock messages %}
+    
+{% endif %}
+
+{% block content %}
+    <div class="col-12 mt-3">
+        <h1 class="mb-4">What do I need to do?</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% if all_items %}
+                <table class="table table-sm">
+                    {% for action in all_items %}
+                        {% if action.completed %}
+                            <tr class="table-secondary">
+                                <td class="ps-3">{{forloop.counter}}</td>
+                                <td class="striker"><a class="link-success text-decoration-none" href="{% url 'td1_edit' action.id %}">{{action.item}}</a></td>
+                                <td><a href="{% url 'td1_uncross' action.id %}"><i class="bi bi-check-square-fill text-success"></i></i></a></td>
+                                <td><a href="{% url 'td1_delete' action.id %}"><i class="bi bi-trash3 text-danger"></i></a></td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td class="ps-3">{{forloop.counter}}</td>
+                                <td><a class="link-dark text-decoration-none" href="{% url 'td1_edit' action.id %}">{{action.item}}</a></td>
+                                <td><a href="{% url 'td1_cross_off' action.id%}"><i class="bi bi-square text-secondary"></i></a></td>
+                                <td><a href="{% url 'td1_delete' action.id %}"><i class="bi bi-trash3 text-danger"></i></a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            {% endif %}
+        
+            
+            <div class="d-flex form-floating w-50 mt-3 mt-lg-5">
+                <input class="form-control me-2" type="input" id="td1-add" placeholder="Add another item" aria-label="To do item" name="item" value="{{curent_name}}">
+                <label for="td1">To-Do item</label>
+                <button class="btn btn-outline-success btn-lg" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+

@@ -1,0 +1,81 @@
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'td1_home' %}">Ben Peterson</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'td1_home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'td1_about' %}">About</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        TO-DO Apps
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Basic To-DO</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ToDo Apps
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Basic To-Do v1 &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'td1_home' %}">To-Do</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'td1_about' %}">About</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Take Aways</a>
+                                </li>
+                                <!-- <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Multi level 1</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Multi level 2</a>
+                                        </li>
+                                    </ul>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Basic To-Do v2 &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">To-Do</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">About</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Take Aways</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}To-Do v1 List | Edit Item{% endblock title %}
+
+{% block content %}
+    <h1>Edit to-do item:</h1>
+    {% if item %}
+        <form class="d-flex" method="POST" action="/">
+            {% csrf_token %}
+            <input class="form-control me-2" type="text" placeholder="{{item.item}}" aria-label="item.item" name="item" value="{{item.item}}">
+            <input type="hidden" value="{{item.completed}}" name="completed">
+            <button class="btn btn-outline-success" type="submit">Edit</button>
+        </form>
+    {% endif %}
+    
+{% endblock content %}
+
